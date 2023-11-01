@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-/*
+
 struct NewRoomView: View {
     @State private var foods: [Food] = []
     @State private var selectedFoodIndex1: Int?
@@ -21,14 +21,6 @@ struct NewRoomView: View {
             Spacer()
         }
         .padding()
-    }
-}
-*/
-struct NewRoomView: View {
-    @EnvironmentObject var dataStore: AppDataStore
-
-    var body: some View {
-        Text("Room UUID: \(dataStore.appData.roomUuid)")
     }
 }
 
