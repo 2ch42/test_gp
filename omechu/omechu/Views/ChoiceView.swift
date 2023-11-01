@@ -17,7 +17,7 @@ struct ChoiceView: View {
                 Spacer()
                 Text("\(foods[selectedFoodIdx!].name)")
                     .font(.headline)
-                Image(uiImage: UIImage(data: foods[selectedFoodIdx!].imgData)!) // 이미지 데이터로 이미지 생성
+                Image(uiImage: UIImage(data: foods[selectedFoodIdx!].imgUrl)!) // 이미지 데이터로 이미지 생성
                     .resizable()
                     .scaledToFit()
                     .frame(width: 180, height: 200) // 이미지 크기 조절
