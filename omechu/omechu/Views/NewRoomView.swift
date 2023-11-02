@@ -22,6 +22,7 @@ struct NewRoomView: View {
 
     var body: some View {
         VStack {
+            Text("Test check : \(roomUuid)")
             Text("먹을 음식을 골라보세요!")
                 .font(.title)
             Spacer()
@@ -37,7 +38,7 @@ struct NewRoomView: View {
 
     // Function to perform the API request
     func fetchRoomUUID() {
-        guard let url = URL(string: "https://yourserver.com/api/room/") else {
+        guard let url = URL(string: "http://localhost:8080/api/room/") else {
             print("Invalid URL")
             return
         }

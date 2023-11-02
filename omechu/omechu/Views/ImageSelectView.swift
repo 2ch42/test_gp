@@ -82,7 +82,7 @@ struct ImageSelectView: View {
         .navigationBarHidden(true)
     }
     func fetchData() {
-        guard let roomUrl = URL(string: "https://yourserver.com/api/room/\(roomUuid)/foods") else {
+        guard let roomUrl = URL(string: "http://localhost:8080/api/room/\(roomUuid)/foods") else {
             print("Invalid URL")
             return
         }
