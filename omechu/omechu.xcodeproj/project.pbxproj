@@ -13,8 +13,8 @@
 		E20C28272AB6D42C00623844 /* StartAppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C28262AB6D42C00623844 /* StartAppView.swift */; };
 		E20C282D2AB6F5A000623844 /* ImageSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20C282C2AB6F59F00623844 /* ImageSelectView.swift */; };
 		E2C93AEF2AB82C0D00F0EDF5 /* NewRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C93AEE2AB82C0D00F0EDF5 /* NewRoomView.swift */; };
-		E2C93AF32AB84B1E00F0EDF5 /* CommitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C93AF22AB84B1E00F0EDF5 /* CommitView.swift */; };
-		E2C93AF52ABAC7A800F0EDF5 /* ChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C93AF42ABAC7A800F0EDF5 /* ChoiceView.swift */; };
+		E2C93AF32AB84B1E00F0EDF5 /* SelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C93AF22AB84B1E00F0EDF5 /* SelectView.swift */; };
+		E2C93AF52ABAC7A800F0EDF5 /* CommitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C93AF42ABAC7A800F0EDF5 /* CommitView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,8 +25,8 @@
 		E20C28262AB6D42C00623844 /* StartAppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAppView.swift; sourceTree = "<group>"; };
 		E20C282C2AB6F59F00623844 /* ImageSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSelectView.swift; sourceTree = "<group>"; };
 		E2C93AEE2AB82C0D00F0EDF5 /* NewRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRoomView.swift; sourceTree = "<group>"; };
-		E2C93AF22AB84B1E00F0EDF5 /* CommitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitView.swift; sourceTree = "<group>"; };
-		E2C93AF42ABAC7A800F0EDF5 /* ChoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceView.swift; sourceTree = "<group>"; };
+		E2C93AF22AB84B1E00F0EDF5 /* SelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectView.swift; sourceTree = "<group>"; };
+		E2C93AF42ABAC7A800F0EDF5 /* CommitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommitView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +82,8 @@
 				E20C28262AB6D42C00623844 /* StartAppView.swift */,
 				E20C282C2AB6F59F00623844 /* ImageSelectView.swift */,
 				E2C93AEE2AB82C0D00F0EDF5 /* NewRoomView.swift */,
-				E2C93AF22AB84B1E00F0EDF5 /* CommitView.swift */,
-				E2C93AF42ABAC7A800F0EDF5 /* ChoiceView.swift */,
+				E2C93AF22AB84B1E00F0EDF5 /* SelectView.swift */,
+				E2C93AF42ABAC7A800F0EDF5 /* CommitView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -166,11 +166,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2C93AEF2AB82C0D00F0EDF5 /* NewRoomView.swift in Sources */,
-				E2C93AF52ABAC7A800F0EDF5 /* ChoiceView.swift in Sources */,
+				E2C93AF52ABAC7A800F0EDF5 /* CommitView.swift in Sources */,
 				E20C282D2AB6F5A000623844 /* ImageSelectView.swift in Sources */,
 				E20C28192AB6D38000623844 /* omechuApp.swift in Sources */,
 				E20C28272AB6D42C00623844 /* StartAppView.swift in Sources */,
-				E2C93AF32AB84B1E00F0EDF5 /* CommitView.swift in Sources */,
+				E2C93AF32AB84B1E00F0EDF5 /* SelectView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
