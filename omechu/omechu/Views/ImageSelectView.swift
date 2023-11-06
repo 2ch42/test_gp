@@ -66,7 +66,7 @@ struct ImageSelectView: View {
                     }
                     .padding()
                 }
-                NavigationLink(destination: CommitView(foods: $foods, selectedFoodIndex1: $selectedFoodIndex1, selectedFoodIndex2: $selectedFoodIndex2)) {
+                NavigationLink(destination: SelectView(foods: $foods, selectedFoodIndex1: $selectedFoodIndex1, selectedFoodIndex2: $selectedFoodIndex2)) {
                     Text("확정하기")
                         .padding()
                         .background(Color.gray)

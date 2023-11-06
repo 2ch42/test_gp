@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ChoiceView: View {
+struct CommitView: View {
     @Binding var foods: [Food]
     @Binding var selectedFoodIdx: Int?
     @State private var isShowingNewRoomView = false // State for showing NewRoomView
@@ -64,8 +64,8 @@ struct ChoiceView: View {
 }
 
 
-struct ChoiceView_Previews: PreviewProvider {
+struct CommitView_Previews: PreviewProvider {
     static var previews: some View {
-        ChoiceView(foods: .constant([Food]()), selectedFoodIdx: .constant(nil))
+        CommitView(foods: .constant([Food]()), selectedFoodIdx: .constant(nil))
     }
 }

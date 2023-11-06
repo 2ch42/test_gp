@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CommitView: View {
+struct SelectView: View {
     @Binding var foods: [Food]
     @Binding var selectedFoodIndex1: Int?
     @Binding var selectedFoodIndex2: Int?
@@ -16,12 +16,12 @@ struct CommitView: View {
     var body: some View {
         if selectedFoodIndex1 != nil, selectedFoodIndex2 != nil {
                 List {
-                    NavigationLink(destination: ChoiceView(foods: $foods, selectedFoodIdx: $selectedFoodIndex1)) {
+                    NavigationLink(destination: CommitView(foods: $foods, selectedFoodIdx: $selectedFoodIndex1)) {
                         Button(action: {}) {
                             Text("\(foods[selectedFoodIndex1!].name)")
                         }
                     }
-                    NavigationLink(destination: ChoiceView(foods: $foods, selectedFoodIdx: $selectedFoodIndex2)) {
+                    NavigationLink(destination: CommitView(foods: $foods, selectedFoodIdx: $selectedFoodIndex2)) {
                         Button(action: {}) {
                             Text("\(foods[selectedFoodIndex2!].name)")
                         }
@@ -34,8 +34,8 @@ struct CommitView: View {
     }
 }
 
-struct CommitView_Previews: PreviewProvider {
+struct SelectView_Previews: PreviewProvider {
     static var previews: some View {
-        CommitView(foods: .constant([Food]()), selectedFoodIndex1: .constant(nil), selectedFoodIndex2: .constant(nil))
+        SelectView(foods: .constant([Food]()), selectedFoodIndex1: .constant(nil), selectedFoodIndex2: .constant(nil))
     }
 }
