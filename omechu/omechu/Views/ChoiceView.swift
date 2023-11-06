@@ -10,6 +10,7 @@ import SwiftUI
 struct ChoiceView: View {
     @Binding var foods: [Food]
     @Binding var selectedFoodIdx: Int?
+    @State private var isShowingNewRoomView = false // recent
     
     var body: some View {
         if selectedFoodIdx != nil {
@@ -26,21 +27,29 @@ struct ChoiceView: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    Button(action: {}) {
-                        Text("새로 고르기")
-                            .padding()
-                            .background(Color.gray)
-                            .foregroundColor(Color.black)
-                            .cornerRadius(10)
+                    NavigationLink (
+                    destination: NewRoomView(),
+                    isActive: $isShowingNewRoomView,
+                    label: {
+                        Button(action: {
+                            isShowingNewRoomView = true
+                        }) {
+                            Text("새로 고르기")
+                                .padding()
+                                .background(Color.gray)
+                                .foregroundColor(Color.black)
+                                .cornerRadius(10)
+                        }
+                        Spacer()
+                        Button(action: {}) {
+                            Text("공유하기")
+                                .padding()
+                                .background(Color.gray)
+                                .foregroundColor(Color.black)
+                                .cornerRadius(10)
+                        }
                     }
-                    Spacer()
-                    Button(action: {}) {
-                        Text("공유하기")
-                            .padding()
-                            .background(Color.gray)
-                            .foregroundColor(Color.black)
-                            .cornerRadius(10)
-                    }
+                    )
                     Spacer()
                 }
             }

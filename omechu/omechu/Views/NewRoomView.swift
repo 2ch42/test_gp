@@ -22,7 +22,6 @@ struct NewRoomView: View {
 
     var body: some View {
         VStack {
-            Text("Test check : \(roomUuid)")
             Text("먹을 음식을 골라보세요!")
                 .font(.title)
             Spacer()
