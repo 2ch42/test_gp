@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StartAppView: View {
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 Text("오늘의 메뉴 추천")
                     .font(.title)
