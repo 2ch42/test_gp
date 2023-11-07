@@ -37,7 +37,7 @@ struct NewRoomView: View {
 
     // Function to perform the API request
     func fetchRoomUUID() {
-        guard let url = URL(string: "http://localhost:8080/api/room/") else {
+        guard let url = URL(string: "http://localhost:8080/api/room") else {
             print("Invalid URL")
             return
         }
