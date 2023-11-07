@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct Food: Codable {
+    var foodId: Int
     var name: String
-    var imgUrl: Data // 이미지 데이터를 저장하는 Data 타입 추가
+    var imgUrl: String // 이미지 데이터를 저장하는 Data 타입 추가
     var description: String
 }
 
@@ -29,10 +30,17 @@ struct ImageSelectView: View {
                             Text("\(foods[selectedFoodIndex1].name)")
                                 .font(.headline)
                                 .foregroundColor(.accentColor)
-                            Image(uiImage: UIImage(data: foods[selectedFoodIndex1].imgUrl)!) // 이미지 데이터로 이미지 생성
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 180, height: 200) // 이미지 크기 조절
+                            AsyncImage(url: URL(string: foods[selectedFoodIndex1].imgUrl)!) { image in
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 180, height: 200)
+                            } placeholder: {
+                                ProgressView()
+                            }
+                                    //.resizable()
+                                    //.scaledToFit()
+                                    //.frame(width: 180, height: 200) // 이미지 크기 조절
                             Text("\(foods[selectedFoodIndex1].description)")
                         }
                     } else {
@@ -43,10 +51,17 @@ struct ImageSelectView: View {
                             Text("\(foods[selectedFoodIndex2].name)")
                                 .font(.headline)
                                 .foregroundColor(.accentColor)
-                            Image(uiImage: UIImage(data: foods[selectedFoodIndex2].imgUrl)!) // 이미지 데이터로 이미지 생성
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 180, height: 200) // 이미지 크기 조절
+                            AsyncImage(url: URL(string: foods[selectedFoodIndex2].imgUrl)!) { image in
+                                image
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 180, height: 200)
+                            } placeholder: {
+                                ProgressView()
+                            }
+                                //.resizable()
+                                //.scaledToFit()
+                                //.frame(width: 180, height: 200) // 이미지 크기 조절
                             Text("\(foods[selectedFoodIndex2].description)")
                         }
                     } else {
@@ -101,18 +116,11 @@ struct ImageSelectView: View {
             if let data = data {
                 do {
                     let decodedData = try JSONDecoder().decode([String: Food].self, from: data)
-                    
-                    if let food1 = decodedData["food1"], let food2 = decodedData["food2"] {
-                        DispatchQueue.main.async {
-                            // Update foods array with received food data
-                            self.foods = [food1, food2]
-
-                            // Update the UI with received food data
-                            self.selectedFoodIndex1 = 0
-                            self.selectedFoodIndex2 = 1
-                        }
-                    } else {
-                        print("Failed to decode food data.")
+                    let foods = decodedData.values.compactMap { $0 }
+                    DispatchQueue.main.async {
+                        self.foods = foods
+                        self.selectedFoodIndex1 = 0
+                        self.selectedFoodIndex2 = 1
                     }
                 } catch {
                     print("Error decoding data: \(error)")
@@ -120,6 +128,7 @@ struct ImageSelectView: View {
             }
         }.resume()
     }
+
 }
 
 struct ImageSelectView_Previews: PreviewProvider {
