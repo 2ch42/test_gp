@@ -49,7 +49,7 @@ struct ChoiceView: View {
                                 .cornerRadius(10)
                         }
                         Spacer()
-                        Button(action: {}) {
+                        Button(action: openMaps) {
                             Text("공유하기")
                                 .padding()
                                 .background(Color.gray)
@@ -64,6 +64,14 @@ struct ChoiceView: View {
             .padding()
         } else {
             Text("이미지를 불러오는 중...")
+        }
+    }
+    func openMaps() {
+        if let encodedAddress = foods[selectedFoodIdx!].name.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) {
+            let mapsURL = URL(string: "http://maps.apple.com/?q=\(encodedAddress)")
+            if let url = mapsURL {
+                UIApplication.shared.open(url)
+            }
         }
     }
 }
