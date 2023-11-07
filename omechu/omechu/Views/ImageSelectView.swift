@@ -35,6 +35,9 @@ struct ImageSelectView: View {
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 180, height: 200)
+                                    .onTapGesture {
+                                        fetchOne()
+                                    }
                             } placeholder: {
                                 ProgressView()
                             }
@@ -56,6 +59,9 @@ struct ImageSelectView: View {
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: 180, height: 200)
+                                    .onTapGesture {
+                                        fetchTwo()
+                                    }
                             } placeholder: {
                                 ProgressView()
                             }
@@ -128,7 +134,68 @@ struct ImageSelectView: View {
             }
         }.resume()
     }
+    func fetchOne() {
+        guard let roomUrl = URL(string: "http://localhost:8080/api/room/\(roomUuid)/food") else {
+            print("Invalid URL")
+            return
+        }
 
+        URLSession.shared.dataTask(with: roomUrl) { data, response, error in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                print("Invalid response")
+                return
+            }
+
+            if let data = data {
+                do {
+                    let singleFood = try JSONDecoder().decode(Food.self, from: data)
+                    if !self.foods.isEmpty {
+                        DispatchQueue.main.async {
+                            self.foods[0] = singleFood
+                        }
+                    }
+                } catch {
+                    print("Error decoding data: \(error)")
+                }
+            }
+        }.resume()
+    }
+    func fetchTwo() {
+        guard let roomUrl = URL(string: "http://localhost:8080/api/room/\(roomUuid)/food") else {
+            print("Invalid URL")
+            return
+        }
+
+        URLSession.shared.dataTask(with: roomUrl) { data, response, error in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+                print("Invalid response")
+                return
+            }
+
+            if let data = data {
+                do {
+                    let singleFood = try JSONDecoder().decode(Food.self, from: data)
+                    if !self.foods.isEmpty {
+                        DispatchQueue.main.async {
+                            self.foods[1] = singleFood
+                        }
+                    }
+                } catch {
+                    print("Error decoding data: \(error)")
+                }
+            }
+        }.resume()
+    }
 }
 
 struct ImageSelectView_Previews: PreviewProvider {
