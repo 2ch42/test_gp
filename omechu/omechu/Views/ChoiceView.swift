@@ -50,7 +50,7 @@ struct ChoiceView: View {
                         }
                         Spacer()
                         Button(action: openMaps) {
-                            Text("공유하기")
+                            Text("지도에서 검색")
                                 .padding()
                                 .background(Color.gray)
                                 .foregroundColor(Color.black)
@@ -60,6 +60,7 @@ struct ChoiceView: View {
                     )
                     Spacer()
                 }
+                Spacer()
             }
             .padding()
         } else {
