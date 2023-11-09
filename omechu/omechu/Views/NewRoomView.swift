@@ -16,7 +16,7 @@ var cancellables = Set<AnyCancellable>()
 
 struct NewRoomView: View {
     @State private var foods: [Food] = []
-    @State private var roomUuid: String = "" // Store the roomUuid here
+    @State private var roomUuid: String?
     @State private var selectedFoodIndex1: Int?
     @State private var selectedFoodIndex2: Int?
 
@@ -26,7 +26,9 @@ struct NewRoomView: View {
                 .font(.title)
             Spacer()
                 .font(.title)
-            ImageSelectView(roomUuid: roomUuid) // Pass roomUuid to ImageSelectView
+            if let roomUuid = roomUuid {
+                ImageSelectView(roomUuid: roomUuid) // Pass roomUuid to ImageSelectView
+            }
             Spacer()
         }
         .padding()
